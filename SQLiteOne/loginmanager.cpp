@@ -1,0 +1,25 @@
+#include "loginmanager.h"
+#include "qdebug.h"
+
+LoginManager::LoginManager(QWidget *parent) : QWidget(parent)
+{
+    m_database = QSqlDatabase::database();
+}
+
+bool LoginManager::login(QString username, QString password)
+{
+    QSqlQuery query1;
+    query1.prepare("SELECT username, password FROM users WHERE username = :username AND password = :password");
+    query1.bindValue(":username", username);
+    query1.bindValue(":password", password);
+    if(!query1.exec()){
+        qDebug() << "Query failed";
+        return false;
+    }
+    if(query1.next()){
+        qDebug() << "Login Successful!";
+        return true;
+    }
+    qDebug() << "Login failed!";
+    return false;
+}

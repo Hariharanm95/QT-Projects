@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Images/about.png</file>
+        <file>Images/copy.png</file>
+        <file>Images/cut.png</file>
+        <file>Images/paste.png</file>
+        <file>Images/Qt.png</file>
+        <file>Images/quit.png</file>
+        <file>Images/redo.png</file>
+        <file>Images/undo.png</file>
+    </qresource>
+</RCC>
